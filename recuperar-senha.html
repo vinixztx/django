@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .links {
+            margin-top: 15px;
+        }
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Recuperar Senha</h2>
+        <form id="passwordRecoveryForm" onsubmit="return validatePasswordRecoveryForm()">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enviar Link de Recuperação">
+            </div>
+            <div class="message" id="recovery-message"></div>
+            <div class="links">
+                <a href="index.html">Voltar para Login</a> | 
+                <a href="cadastro.html">Criar uma conta</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validatePasswordRecoveryForm() {
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('recovery-message');
+
+            message.textContent = ''; 
+
+            if (!email) {
+                message.textContent = 'O campo Email é obrigatório.';
+                return false;
+            }
+
+            
+            alert('Link de recuperação enviado para o seu email!');
+            return true; 
+        }
+    </script>
+</body>
+</html>

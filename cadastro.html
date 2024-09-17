@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .links {
+            margin-top: 15px;
+        }
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Cadastro</h2>
+        <form id="registrationForm" onsubmit="return validateRegistrationForm()">
+            <div class="form-group">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar">
+            </div>
+            <div class="message" id="registration-message"></div>
+            <div class="links">
+                <a href="index.html">Já tenho uma conta</a> | 
+                <a href="recuperar-senha.html">Esqueci minha senha</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validateRegistrationForm() {
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var message = document.getElementById('registration-message');
+
+            message.textContent = '';
+
+            if (!username) {
+                message.textContent = 'O campo Usuário é obrigatório.';
+                return false;
+            }
+            if (!email) {
+                message.textContent = 'O campo Email é obrigatório.';
+                return false;
+            }
+            if (!password) {
+                message.textContent = 'O campo Senha é obrigatório.';
+                return false;
+            }
+
+          
+            alert('Cadastro realizado com sucesso!');
+            return true; 
+        }
+    </script>
+</body>
+</html>
